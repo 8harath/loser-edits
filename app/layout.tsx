@@ -38,6 +38,14 @@ export const metadata: Metadata = {
   keywords: ["graphic design", "poster design", "visual identity", "branding", "web design", "creative direction"],
   authors: [{ name: "Kishore K" }],
   creator: "Kishore K",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "Kishore K - Visual Storyteller",
     description: "Bold visual narratives that bridge technical precision and creative expression",
@@ -63,6 +71,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+      </head>
       <body
         className={`${inter.variable} ${anton.variable} ${robotoCondensed.variable} ${robotoMono.variable} font-inter antialiased`}
       >
