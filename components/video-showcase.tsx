@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Play, ExternalLink } from "lucide-react"
+import Image from "next/image"
 
 interface Video {
   id: number
@@ -20,8 +21,8 @@ const videos: Video[] = [
     title: "MOTION GRAPHICS REEL",
     description:
       "A dynamic showcase of motion graphics work featuring bold typography animations and color transitions.",
-    thumbnail: "/placeholder.svg?height=315&width=560",
-    youtubeId: "dQw4w9WgXcQ",
+    thumbnail: "https://img.youtube.com/vi/YgXdoat3NcQ/maxresdefault.jpg",
+    youtubeId: "YgXdoat3NcQ",
     duration: "2:34",
     category: "Motion Graphics",
   },
@@ -29,8 +30,8 @@ const videos: Video[] = [
     id: 2,
     title: "POSTER DESIGN PROCESS",
     description: "Behind-the-scenes look at the creative process of designing impactful poster compositions.",
-    thumbnail: "/placeholder.svg?height=315&width=560",
-    youtubeId: "dQw4w9WgXcQ",
+    thumbnail: "https://img.youtube.com/vi/HVIfVvEIvMI/maxresdefault.jpg",
+    youtubeId: "HVIfVvEIvMI",
     duration: "4:12",
     category: "Process",
   },
@@ -38,8 +39,8 @@ const videos: Video[] = [
     id: 3,
     title: "BRAND IDENTITY SHOWCASE",
     description: "Comprehensive brand identity project featuring logo design, color systems, and visual applications.",
-    thumbnail: "/placeholder.svg?height=315&width=560",
-    youtubeId: "dQw4w9WgXcQ",
+    thumbnail: "https://img.youtube.com/vi/JCqyi9GjKZk/maxresdefault.jpg",
+    youtubeId: "JCqyi9GjKZk",
     duration: "3:45",
     category: "Branding",
   },
@@ -92,9 +93,11 @@ export default function VideoShowcase() {
                 ) : (
                   // Thumbnail with Play Button
                   <div className="relative w-full h-full cursor-pointer group" onClick={() => setActiveVideo(video.id)}>
-                    <div
-                      className="w-full h-full bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                      style={{ backgroundImage: `url(${video.thumbnail})` }}
+                    <Image
+                      src={video.thumbnail}
+                      alt={video.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
 
                     {/* Overlay */}
