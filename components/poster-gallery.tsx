@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
 import Image from "next/image"
@@ -138,6 +138,138 @@ const posters: Poster[] = [
   },
 ]
 
+// Interactive Poster Component
+function InteractivePoster({ 
+  poster, 
+  index, 
+  onSelect 
+}: { 
+  poster: Poster; 
+  index: number; 
+  onSelect: (poster: Poster) => void;
+}) {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isHovered, setIsHovered] = useState(false)
+  const posterRef = useRef<HTMLDivElement>(null)
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!posterRef.current) return
+    
+    const rect = posterRef.current.getBoundingClientRect()
+    const x = ((e.clientX - rect.left) / rect.width) * 100
+    const y = ((e.clientY - rect.top) / rect.height) * 100
+    
+    setMousePosition({ x, y })
+  }
+
+  const handleMouseEnter = () => setIsHovered(true)
+  const handleMouseLeave = () => setIsHovered(false)
+
+  return (
+    <motion.div
+      ref={posterRef}
+      className="group cursor-pointer relative"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.8 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      layout
+      whileHover={{ y: -8, scale: 1.02 }}
+      onClick={() => onSelect(poster)}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Poster Card */}
+      <div className="relative bg-white paper-shadow-refined overflow-hidden aspect-[210/297] group-hover:paper-shadow-refined transition-all duration-500 rounded-sm poster-elegant">
+        <Image
+          src={poster.image || "/placeholder.svg"}
+          alt={poster.title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          style={{
+            transform: isHovered 
+              ? `scale(1.05) translate(${(mousePosition.x - 50) * 0.02}px, ${(mousePosition.y - 50) * 0.02}px)`
+              : 'scale(1)'
+          }}
+        />
+
+        {/* Mouse-following gradient overlay */}
+        {isHovered && (
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            style={{
+              background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, var(--${poster.dominantColor}) 0%, transparent 50%)`,
+              opacity: 0.3
+            }}
+          />
+        )}
+
+        {/* Subtle color accent on hover */}
+        <div
+          className={`absolute inset-0 bg-${poster.dominantColor} opacity-0 group-hover:opacity-8 transition-opacity duration-500`}
+        />
+
+        {/* Overlay */}
+        <div
+          className={`absolute inset-0 bg-${poster.dominantColor}/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center`}
+        >
+          <div className="text-center text-paper-white p-4">
+            <h3 className="text-2xl font-anton font-bold mb-2 tracking-wider">{poster.title}</h3>
+            <p className="text-sm opacity-90">{poster.category}</p>
+            <p className="text-xs opacity-75 mt-1">{poster.year}</p>
+          </div>
+        </div>
+
+        {/* Enhanced texture overlay */}
+        <div className="absolute inset-0 bg-paper-aged opacity-15 pointer-events-none" />
+
+        {/* Mouse-following corner accent */}
+        <motion.div 
+          className={`absolute w-6 h-6 bg-${poster.dominantColor} opacity-0 group-hover:opacity-60 transition-opacity duration-300 transform rotate-45`}
+          style={{
+            top: isHovered ? `${mousePosition.y * 0.8}%` : '0%',
+            left: isHovered ? `${mousePosition.x * 0.8}%` : 'auto',
+            right: isHovered ? 'auto' : '0%',
+            transform: `rotate(45deg) translate(${isHovered ? '0px' : '3px'}, ${isHovered ? '0px' : '-3px'})`
+          }}
+        />
+
+        {/* Floating particles effect */}
+        {isHovered && (
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            {[...Array(5)].map((_, i) => (
+              <motion.div
+                key={i}
+                className={`absolute w-1 h-1 bg-${poster.dominantColor} rounded-full opacity-60`}
+                initial={{ 
+                  x: mousePosition.x * 0.8, 
+                  y: mousePosition.y * 0.8,
+                  scale: 0 
+                }}
+                animate={{ 
+                  x: mousePosition.x * 0.8 + (Math.random() - 0.5) * 100,
+                  y: mousePosition.y * 0.8 + (Math.random() - 0.5) * 100,
+                  scale: [0, 1, 0]
+                }}
+                transition={{ 
+                  duration: 2,
+                  repeat: Infinity,
+                  delay: i * 0.2
+                }}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </motion.div>
+  )
+}
+
 export default function PosterGallery() {
   const [selectedPoster, setSelectedPoster] = useState<Poster | null>(null)
   const [filter, setFilter] = useState("All")
@@ -156,8 +288,11 @@ export default function PosterGallery() {
   const filteredPosters = filter === "All" ? posters : posters.filter((poster) => poster.category === filter)
 
   return (
-    <section id="gallery" className="py-20 px-4 bg-paper-white">
-      <div className="max-w-7xl mx-auto">
+    <section id="gallery" className="py-20 px-4 bg-paper-white relative">
+      {/* Paper texture overlay */}
+      <div className="absolute inset-0 bg-paper-texture opacity-20 pointer-events-none" />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <motion.div
           className="text-center mb-16"
@@ -202,42 +337,7 @@ export default function PosterGallery() {
         <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" layout>
           <AnimatePresence>
             {filteredPosters.map((poster, index) => (
-              <motion.div
-                key={poster.id}
-                className="group cursor-pointer"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                layout
-                whileHover={{ y: -10 }}
-                onClick={() => setSelectedPoster(poster)}
-              >
-                {/* Poster Card */}
-                <div className="relative bg-white shadow-lg overflow-hidden aspect-[210/297] group-hover:shadow-2xl transition-all duration-300">
-                  <Image
-                    src={poster.image || "/placeholder.svg"}
-                    alt={poster.title}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-
-                  {/* Overlay */}
-                  <div
-                    className={`absolute inset-0 bg-${poster.dominantColor}/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center`}
-                  >
-                    <div className="text-center text-paper-white p-4">
-                      <h3 className="text-2xl font-anton font-bold mb-2 tracking-wider">{poster.title}</h3>
-                      <p className="text-sm opacity-90">{poster.category}</p>
-                      <p className="text-xs opacity-75 mt-1">{poster.year}</p>
-                    </div>
-                  </div>
-
-                  {/* Texture overlay */}
-                  <div className="absolute inset-0 bg-noise-texture opacity-20 pointer-events-none" />
-                </div>
-              </motion.div>
+              <InteractivePoster key={poster.id} poster={poster} index={index} onSelect={setSelectedPoster} />
             ))}
           </AnimatePresence>
         </motion.div>
@@ -264,7 +364,10 @@ export default function PosterGallery() {
               exit={{ scale: 0.8, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex flex-col md:flex-row">
+              {/* Paper texture overlay for modal */}
+              <div className="absolute inset-0 bg-paper-texture opacity-10 pointer-events-none" />
+              
+              <div className="flex flex-col md:flex-row relative z-10">
                 {/* Image */}
                 <div className="md:w-1/2 aspect-[210/297] relative">
                   <Image

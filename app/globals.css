@@ -156,8 +156,84 @@
   }
 
   .bg-paper-texture {
-    background-image: radial-gradient(circle at 2px 2px, rgba(139, 134, 128, 0.1) 1px, transparent 0);
-    background-size: 15px 15px;
+    background-image: 
+      radial-gradient(circle at 2px 2px, rgba(139, 134, 128, 0.1) 1px, transparent 0),
+      linear-gradient(45deg, transparent 40%, rgba(139, 134, 128, 0.05) 50%, transparent 60%),
+      linear-gradient(-45deg, transparent 40%, rgba(139, 134, 128, 0.03) 50%, transparent 60%);
+    background-size: 15px 15px, 30px 30px, 25px 25px;
+  }
+
+  .bg-vintage-paper {
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(139, 134, 128, 0.08) 1px, transparent 0),
+      linear-gradient(90deg, transparent 98%, rgba(139, 134, 128, 0.1) 100%),
+      linear-gradient(0deg, transparent 98%, rgba(139, 134, 128, 0.1) 100%),
+      radial-gradient(ellipse at center, rgba(248, 246, 240, 0.8) 0%, rgba(248, 246, 240, 0.4) 70%, rgba(248, 246, 240, 0.1) 100%);
+    background-size: 20px 20px, 100px 100px, 100px 100px, 200px 200px;
+  }
+
+  .bg-paper-overlay {
+    position: relative;
+  }
+
+  .bg-paper-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 2px 2px, rgba(139, 134, 128, 0.06) 1px, transparent 0),
+      linear-gradient(45deg, transparent 40%, rgba(139, 134, 128, 0.03) 50%, transparent 60%),
+      linear-gradient(-45deg, transparent 40%, rgba(139, 134, 128, 0.02) 50%, transparent 60%);
+    background-size: 18px 18px, 35px 35px, 28px 28px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .bg-paper-overlay > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Enhanced paper effects */
+  .bg-paper-grain {
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(139, 134, 128, 0.04) 1px, transparent 0),
+      radial-gradient(circle at 3px 3px, rgba(139, 134, 128, 0.02) 1px, transparent 0);
+    background-size: 12px 12px, 24px 24px;
+  }
+
+  .bg-paper-lines {
+    background-image: 
+      linear-gradient(90deg, transparent 98%, rgba(139, 134, 128, 0.08) 100%),
+      linear-gradient(0deg, transparent 98%, rgba(139, 134, 128, 0.08) 100%);
+    background-size: 50px 50px;
+  }
+
+  .bg-paper-aged {
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(139, 134, 128, 0.06) 1px, transparent 0),
+      linear-gradient(45deg, transparent 40%, rgba(139, 134, 128, 0.02) 50%, transparent 60%),
+      linear-gradient(-45deg, transparent 40%, rgba(139, 134, 128, 0.02) 50%, transparent 60%),
+      radial-gradient(ellipse at center, rgba(248, 246, 240, 0.9) 0%, rgba(248, 246, 240, 0.6) 70%, rgba(248, 246, 240, 0.3) 100%);
+    background-size: 16px 16px, 32px 32px, 28px 28px, 150px 150px;
+  }
+
+  /* Paper shadow effects */
+  .paper-shadow {
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.12),
+      0 1px 2px rgba(0, 0, 0, 0.24),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .paper-shadow-hover {
+    box-shadow: 
+      0 3px 6px rgba(0, 0, 0, 0.16),
+      0 3px 6px rgba(0, 0, 0, 0.23),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
   /* Distressed text effect */
@@ -190,6 +266,377 @@
 
   ::-webkit-scrollbar-thumb:hover {
     background: var(--electric-purple);
+  }
+
+  /* Animated poster borders */
+  .poster-border {
+    position: relative;
+    padding: 4px;
+    background: linear-gradient(45deg, var(--crimson-red), var(--burnt-orange), var(--electric-purple), var(--forest-green), var(--golden-yellow));
+    background-size: 400% 400%;
+    animation: borderShift 8s ease-in-out infinite;
+  }
+
+  .poster-border::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: var(--paper-white);
+    z-index: 1;
+  }
+
+  .poster-border-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Individual color border animations */
+  .border-crimson-red {
+    background: linear-gradient(45deg, var(--crimson-red), #ff4757, var(--crimson-red));
+    background-size: 200% 200%;
+    animation: colorPulse 4s ease-in-out infinite;
+  }
+
+  .border-burnt-orange {
+    background: linear-gradient(45deg, var(--burnt-orange), #ffa502, var(--burnt-orange));
+    background-size: 200% 200%;
+    animation: colorPulse 4s ease-in-out infinite 0.5s;
+  }
+
+  .border-electric-purple {
+    background: linear-gradient(45deg, var(--electric-purple), #a55eea, var(--electric-purple));
+    background-size: 200% 200%;
+    animation: colorPulse 4s ease-in-out infinite 1s;
+  }
+
+  .border-forest-green {
+    background: linear-gradient(45deg, var(--forest-green), #26de81, var(--forest-green));
+    background-size: 200% 200%;
+    animation: colorPulse 4s ease-in-out infinite 1.5s;
+  }
+
+  .border-golden-yellow {
+    background: linear-gradient(45deg, var(--golden-yellow), #fed330, var(--golden-yellow));
+    background-size: 200% 200%;
+    animation: colorPulse 4s ease-in-out infinite 2s;
+  }
+
+  /* Border animations */
+  @keyframes borderShift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes colorPulse {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Glowing border effect */
+  .poster-glow {
+    position: relative;
+  }
+
+  .poster-glow::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, var(--crimson-red), var(--burnt-orange), var(--electric-purple), var(--forest-green), var(--golden-yellow));
+    background-size: 400% 400%;
+    animation: borderShift 6s ease-in-out infinite;
+    border-radius: 8px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .poster-glow:hover::after {
+    opacity: 0.8;
+  }
+
+  /* Rainbow border effect */
+  .rainbow-border {
+    position: relative;
+    padding: 3px;
+    background: linear-gradient(45deg, 
+      var(--crimson-red) 0%, 
+      var(--burnt-orange) 20%, 
+      var(--golden-yellow) 40%, 
+      var(--forest-green) 60%, 
+      var(--electric-purple) 80%, 
+      var(--crimson-red) 100%);
+    background-size: 200% 200%;
+    animation: rainbowShift 8s linear infinite;
+  }
+
+  .rainbow-border::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: var(--paper-white);
+    z-index: 1;
+  }
+
+  @keyframes rainbowShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 200% 50%;
+    }
+  }
+
+  /* Dynamic poster grid borders */
+  .poster-grid-border {
+    position: relative;
+    padding: 4px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .poster-grid-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, 
+      var(--crimson-red), 
+      var(--burnt-orange), 
+      var(--electric-purple), 
+      var(--forest-green), 
+      var(--golden-yellow), 
+      var(--crimson-red));
+    background-size: 300% 300%;
+    animation: gridBorderShift 6s ease-in-out infinite;
+    border-radius: 8px;
+  }
+
+  .poster-grid-border::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: var(--paper-white);
+    border-radius: 6px;
+    z-index: 1;
+  }
+
+  .poster-grid-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  @keyframes gridBorderShift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 100% 50%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
+  }
+
+  /* Individual poster border effects */
+  .border-effect-crimson {
+    background: linear-gradient(45deg, var(--crimson-red), #ff4757, var(--crimson-red));
+    background-size: 200% 200%;
+    animation: colorFlow 4s ease-in-out infinite;
+  }
+
+  .border-effect-orange {
+    background: linear-gradient(45deg, var(--burnt-orange), #ffa502, var(--burnt-orange));
+    background-size: 200% 200%;
+    animation: colorFlow 4s ease-in-out infinite 0.8s;
+  }
+
+  .border-effect-purple {
+    background: linear-gradient(45deg, var(--electric-purple), #a55eea, var(--electric-purple));
+    background-size: 200% 200%;
+    animation: colorFlow 4s ease-in-out infinite 1.6s;
+  }
+
+  .border-effect-green {
+    background: linear-gradient(45deg, var(--forest-green), #26de81, var(--forest-green));
+    background-size: 200% 200%;
+    animation: colorFlow 4s ease-in-out infinite 2.4s;
+  }
+
+  .border-effect-yellow {
+    background: linear-gradient(45deg, var(--golden-yellow), #fed330, var(--golden-yellow));
+    background-size: 200% 200%;
+    animation: colorFlow 4s ease-in-out infinite 3.2s;
+  }
+
+  @keyframes colorFlow {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Hover effects for borders */
+  .poster-border-hover {
+    transition: all 0.3s ease;
+  }
+
+  .poster-border-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .poster-border-hover:hover::before {
+    animation-duration: 2s;
+  }
+
+  /* Professional poster effects */
+  .poster-elegant {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .poster-elegant:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.15),
+      0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Subtle color accents */
+  .color-accent {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .color-accent::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--crimson-red), var(--burnt-orange), var(--electric-purple));
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+  }
+
+  .color-accent:hover::after {
+    transform: translateX(0);
+  }
+
+  /* Professional grid spacing */
+  .gallery-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  /* Refined paper shadows */
+  .paper-shadow-refined {
+    box-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.1),
+      0 4px 8px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .paper-shadow-refined:hover {
+    box-shadow: 
+      0 8px 16px rgba(0, 0, 0, 0.12),
+      0 4px 8px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  /* Mouse-triggered effects */
+  .mouse-follow {
+    transition: transform 0.1s ease-out;
+  }
+
+  .mouse-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mouse-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+      rgba(255, 255, 255, 0.1) 0%, 
+      transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .mouse-glow:hover::before {
+    opacity: 1;
+  }
+
+  /* Floating particles */
+  .particle {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+  }
+
+  /* Interactive tilt effect */
+  .tilt-container {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .tilt-element {
+    transition: transform 0.1s ease-out;
+  }
+
+  /* Mouse trail effect */
+  .mouse-trail {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--crimson-red);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.6;
+    animation: fadeOut 1s ease-out forwards;
+  }
+
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+
+  /* Ripple effect */
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+  }
+
+  @keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
   }
 }
 

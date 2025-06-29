@@ -20,10 +20,10 @@ export default function HomePage() {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
 
   return (
-    <div ref={containerRef} className="relative min-h-screen bg-paper-white overflow-x-hidden">
+    <div ref={containerRef} className="relative min-h-screen bg-paper-white overflow-x-hidden bg-paper-overlay">
       {/* Animated background texture */}
-      <motion.div className="fixed inset-0 opacity-10 pointer-events-none" style={{ y: backgroundY }}>
-        <div className="absolute inset-0 bg-noise-texture" />
+      <motion.div className="fixed inset-0 opacity-15 pointer-events-none" style={{ y: backgroundY }}>
+        <div className="absolute inset-0 bg-vintage-paper" />
       </motion.div>
 
       <Navigation />
