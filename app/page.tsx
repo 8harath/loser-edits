@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import HeroSection from "@/components/hero-section"
 import PosterGallery from "@/components/poster-gallery"
 import VideoShowcase from "@/components/video-showcase"
-import ProjectsSection from "@/components/projects-section"
+// import ProjectsSection from "@/components/projects-section"
 import AboutSection from "@/components/about-section"
 import ContactSection from "@/components/contact-section"
 import Navigation from "@/components/navigation"
@@ -32,7 +32,7 @@ export default function HomePage() {
         <HeroSection />
         <PosterGallery />
         <VideoShowcase />
-        <ProjectsSection />
+        {/* <ProjectsSection /> */}
         <AboutSection />
         <ContactSection />
       </main>

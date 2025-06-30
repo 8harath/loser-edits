@@ -85,18 +85,13 @@ export default function AboutSection() {
             <h3 className="text-3xl font-anton font-bold text-paper-white mb-6 tracking-wider">THE STORY</h3>
             <div className="space-y-4 text-dust-grey leading-relaxed">
               <p>
-                I'm a Computer Science undergraduate with an unrelenting passion for visual storytelling. My journey
-                began with a fascination for how code and creativity could intersect to create powerful digital
-                experiences.
+                Hi, I'm Kishore — a curious mind drawn to visuals, stories, and the quiet power of design. What began as a simple love for movies soon turned into an obsession with frames, color, light, and emotion. I started editing scenes, designing posters, and slowly began to understand how a single image can hold an entire narrative.
               </p>
               <p>
-                What started as experimentation with design software evolved into a deep understanding of typography,
-                color theory, and visual hierarchy. I believe that great design isn't just about aesthetics—it's about
-                communication, emotion, and impact.
+                Graphic design, for me, isn't just about making things look good — it's about making people feel something. Whether it's a poster, a visual concept, or a rough idea taking shape, I try to approach each project with patience, honesty, and a desire to keep learning. I don't claim to know it all — in fact, I prefer being in that space where there's always more to explore.
               </p>
               <p>
-                My work is characterized by bold typography, experimental color palettes, and a "neo-grunge" aesthetic
-                that challenges traditional design conventions while maintaining professional standards.
+                This website is a small archive of that exploration. A place to gather the work I've done, the pieces I'm proud of, and the experiments that didn't quite work — because they matter too. If something here speaks to you, then perhaps the design did its job.
               </p>
             </div>
 
