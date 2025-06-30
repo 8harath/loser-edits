@@ -7,7 +7,6 @@ const skills = [
   { name: "Adobe Photoshop", level: 95, icon: "🎨" },
   { name: "Adobe Illustrator", level: 90, icon: "✏️" },
   { name: "Adobe InDesign", level: 85, icon: "📄" },
-  { name: "Figma", level: 88, icon: "🎯" },
   { name: "After Effects", level: 75, icon: "🎬" },
   { name: "Typography", level: 92, icon: "📝" },
 ]
