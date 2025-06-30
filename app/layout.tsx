@@ -4,8 +4,6 @@ import { Inter, Anton, Roboto_Condensed, Roboto_Mono } from "next/font/google"
 import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
 import "../styles/globals.css"
-import { FullPageLoader } from "@/components/ui/skeleton"
-import { useEffect, useState } from "react"
 import { LoaderProvider } from "@/components/ui/loader-provider"
 
 const inter = Inter({
@@ -73,13 +71,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1200)
-    return () => clearTimeout(timer)
-  }, [])
-
   return (
     <html lang="en" className="scroll-smooth">
       <head>
