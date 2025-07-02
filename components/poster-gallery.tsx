@@ -275,11 +275,8 @@ export default function PosterGallery() {
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={e => e.stopPropagation()}
             >
-              {/* Header with Title and Close Button */}
-              <div className="bg-crimson-red text-white p-6 flex items-center justify-between">
-                <h3 className="text-2xl md:text-3xl font-anton font-bold tracking-wide">
-                  {selectedPoster.title}
-                </h3>
+              {/* Header with Close Button */}
+              <div className="bg-crimson-red text-white p-4 flex items-center justify-end">
                 <button
                   className="bg-white/20 hover:bg-white/30 text-white rounded-full p-2 transition-colors"
                   onClick={() => setSelectedPoster(null)}
@@ -303,6 +300,13 @@ export default function PosterGallery() {
                 {/* Right: Description */}
                 <div className="flex-1 bg-white p-8 overflow-y-auto">
                   <div className="space-y-6">
+                    {/* Title */}
+                    <div>
+                      <h3 className="text-2xl md:text-3xl font-anton font-bold text-crimson-red tracking-wide mb-4">
+                        {selectedPoster.title}
+                      </h3>
+                    </div>
+                    
                     <div>
                       <h4 className="text-lg font-bold text-charcoal-black mb-3">About This Poster</h4>
                       <p className="text-dust-grey text-base leading-relaxed whitespace-pre-line">
