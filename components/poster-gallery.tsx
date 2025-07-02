@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
 import Image from "next/image"
@@ -155,6 +155,18 @@ export default function PosterGallery() {
 
   const filteredPosters = filter === "All" ? posters : posters.filter((poster) => poster.category === filter)
 
+  // Prevent background scroll when modal is open
+  useEffect(() => {
+    if (selectedPoster) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [selectedPoster])
+
   return (
     <section id="gallery" className="py-20 px-4 bg-paper-white">
       <div className="max-w-7xl mx-auto">
@@ -247,63 +259,56 @@ export default function PosterGallery() {
       <AnimatePresence>
         {selectedPoster && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedPoster(null)}
           >
-            {/* Backdrop */}
-            <div className={`absolute inset-0 bg-${selectedPoster.dominantColor}/20 backdrop-blur-md`} />
-
             {/* Modal Content */}
             <motion.div
-              className="relative bg-paper-white rounded-lg shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
+              className="relative bg-paper-white rounded-lg shadow-2xl w-full h-full max-w-6xl max-h-[98vh] flex flex-col md:flex-row overflow-hidden"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
+              onClick={e => e.stopPropagation()}
             >
-              <div className="flex flex-col md:flex-row max-h-[80vh]">
-                {/* Image */}
-                <div className="md:w-1/2 flex items-center justify-center overflow-auto p-4">
-                  <img
-                    src={selectedPoster.image || "/placeholder.svg"}
-                    alt={selectedPoster.title}
-                    className="max-h-[70vh] w-auto rounded shadow-lg"
-                    style={{ objectFit: 'contain', display: 'block', margin: '0 auto' }}
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="md:w-1/2 p-8 flex flex-col justify-center overflow-auto max-h-[70vh]">
-                  <h3 className="text-4xl font-anton font-bold text-charcoal-black mb-4 tracking-wider">
-                    {selectedPoster.title}
-                  </h3>
-                  <p className="text-dust-grey mb-6 leading-relaxed whitespace-pre-line">
-                    {selectedPoster.description}
-                  </p>
-                  <div className="flex items-center gap-4 text-sm text-dust-grey mb-6">
-                    <span className="bg-dust-grey/20 px-3 py-1 rounded">{selectedPoster.category}</span>
-                    <span>{selectedPoster.year}</span>
-                  </div>
-                  <a
-                    href={selectedPoster.image}
-                    download
-                    className="inline-block bg-crimson-red text-paper-white px-6 py-2 rounded font-semibold shadow hover:bg-charcoal-black transition-colors text-center"
-                  >
-                    Download Poster
-                  </a>
-                </div>
-              </div>
-
               {/* Close Button */}
               <button
-                className="absolute top-4 right-4 text-charcoal-black hover:text-crimson-red transition-colors"
+                className="absolute top-4 right-4 z-10 text-charcoal-black hover:text-crimson-red transition-colors bg-white/80 rounded-full p-2 shadow-lg text-2xl md:text-3xl"
                 onClick={() => setSelectedPoster(null)}
+                aria-label="Close"
               >
-                <X size={24} />
+                <X size={32} />
               </button>
+              {/* Image */}
+              <div className="flex-1 flex items-center justify-center bg-neutral-100 overflow-auto p-4 min-w-0">
+                <img
+                  src={selectedPoster.image || "/placeholder.svg"}
+                  alt={selectedPoster.title}
+                  className="max-h-[90vh] max-w-full w-auto h-auto rounded shadow-lg object-contain"
+                  style={{ margin: '0 auto' }}
+                />
+              </div>
+              {/* Content */}
+              <div className="flex-1 p-8 flex flex-col justify-center overflow-auto min-w-0 max-h-[90vh]">
+                <h3 className="text-4xl font-anton font-bold text-charcoal-black mb-4 tracking-wider">
+                  {selectedPoster.title}
+                </h3>
+                <p className="text-dust-grey mb-6 leading-relaxed whitespace-pre-line">
+                  {selectedPoster.description}
+                </p>
+                <div className="flex items-center gap-4 text-sm text-dust-grey mb-6">
+                  <span className="bg-dust-grey/20 px-3 py-1 rounded">{selectedPoster.category}</span>
+                  <span>{selectedPoster.year}</span>
+                </div>
+                <a
+                  href={selectedPoster.image}
+                  download
+                  className="inline-block bg-crimson-red text-paper-white px-6 py-2 rounded font-semibold shadow hover:bg-charcoal-black transition-colors text-center"
+                >
+                  Download Poster
+                </a>
+              </div>
             </motion.div>
           </motion.div>
         )}
