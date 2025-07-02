@@ -18,123 +18,120 @@ interface Poster {
 const posters: Poster[] = [
   {
     id: 1,
-    title: "The Hateful 8",
-    description:
-      `Poster name : The hateful 8\n\nThis poster visually encapsulates the essence of the film, using symbolism to hint at the narrative without revealing it outright. At the core of the composition are seven guns—each representing one of the seven main characters who ultimately turn on one another. The bullets falling from the top right corner signify innocent bloodshed, symbolizing casualties like the van and wagon drivers—those caught in the crossfire. Among the seven guns, two are positioned in direct contrast: one pointing down, the other in reverse. These represent the duality between two central figures—Major Wallace and the man who arrives to rescue the captured woman. Though the story avoids a clear-cut hero-villain dynamic, it thrives on character contrast. The red tones signify blood and violence, while the snowy backdrop alludes to the film's cold, unforgiving setting. The overall aesthetic leans into a retro-western style, reflecting the film's 1890s setting. This design aims to tell the story in a single frame, embracing the spirit of classic western posters with modern narrative depth.`,
-    image: "/Posters/Poster (1).jpg",
-    dominantColor: "crimson-red",
-    year: "2024",
-    category: "Typography",
+    title: "Kaasu Illa Maame",
+    description: "Low-Quality Poster: Kaasu Illa Maame",
+    image: "/Posters/Low-Quality/Kaasu Illa Maame.jpg",
+    dominantColor: "gray",
+    year: "",
+    category: "Low-Quality",
   },
   {
     id: 2,
-    title: "HUNTER",
-    description:
-      "Dynamic composition featuring vibrant orange gradients and textural elements inspired by urban street art.",
-    image: "/Posters/Poster (2).jpg",
-    dominantColor: "burnt-orange",
-    year: "2024",
-    category: "Poster Design",
+    title: "Kuruma",
+    description: "Low-Quality Poster: Kuruma",
+    image: "/Posters/Low-Quality/Kuruma.jpg",
+    dominantColor: "gray",
+    year: "",
+    category: "Low-Quality",
   },
   {
     id: 3,
-    title: "NEON DREAMS",
-    description: "Electric purple-dominated design exploring the intersection of digital and analog aesthetics.",
-    image: "/Posters/Poster (3).jpg",
-    dominantColor: "electric-purple",
-    year: "2024",
-    category: "Digital Art",
+    title: "She Was",
+    description: "Low-Quality Poster: She Was",
+    image: "/Posters/Low-Quality/She Was.jpg",
+    dominantColor: "gray",
+    year: "",
+    category: "Low-Quality",
   },
   {
     id: 4,
-    title: "FOREST ECHO",
-    description: "Nature-inspired composition using deep greens and organic textures to create visual harmony.",
-    image: "/Posters/Poster (4).jpg",
-    dominantColor: "forest-green",
-    year: "2023",
-    category: "Environmental",
+    title: "Paadai",
+    description: "Low-Quality Poster: Paadai",
+    image: "/Posters/Low-Quality/Paadai.jpg",
+    dominantColor: "gray",
+    year: "",
+    category: "Low-Quality",
   },
   {
     id: 5,
-    title: "GOLDEN HOUR",
-    description: "Warm yellow tones capturing the essence of transition and transformation through layered typography.",
-    image: "/Posters/Poster (5).jpg",
-    dominantColor: "golden-yellow",
-    year: "2023",
-    category: "Typography",
+    title: "The Hatefull 8",
+    description: "Low-Quality Poster: The Hatefull 8",
+    image: "/Posters/Low-Quality/The Hatefull 8.jpg",
+    dominantColor: "gray",
+    year: "",
+    category: "Low-Quality",
   },
   {
     id: 6,
-    title: "REBEL SPIRIT",
-    description: "High-contrast design embodying rebellion and creative freedom through distressed visual elements.",
-    image: "/Posters/Poster (6).jpg",
-    dominantColor: "crimson-red",
-    year: "2024",
-    category: "Poster Design",
+    title: "Jocker",
+    description: "Low-Quality Poster: Jocker",
+    image: "/Posters/Low-Quality/Jocker.jpg",
+    dominantColor: "gray",
+    year: "",
+    category: "Low-Quality",
   },
   {
     id: 7,
-    title: "URBAN PULSE",
-    description: "City-inspired composition featuring bold geometric shapes and vibrant color combinations.",
-    image: "/Posters/Poster (7).jpg",
-    dominantColor: "burnt-orange",
-    year: "2023",
-    category: "Urban Art",
+    title: "Knife In the Water",
+    description: "Low-Quality Poster: Knife In the Water",
+    image: "/Posters/Low-Quality/Knife In the Water.jpg",
+    dominantColor: "gray",
+    year: "",
+    category: "Low-Quality",
   },
   {
     id: 8,
-    title: "MYSTIC VOID",
-    description: "Abstract exploration of space and mystery using purple gradients and ethereal textures.",
-    image: "/Posters/Poster (8).jpg",
-    dominantColor: "electric-purple",
-    year: "2024",
-    category: "Abstract",
+    title: "Ford",
+    description: "Low-Quality Poster: Ford",
+    image: "/Posters/Low-Quality/Ford.jpg",
+    dominantColor: "gray",
+    year: "",
+    category: "Low-Quality",
   },
   {
     id: 9,
-    title: "EARTH TONE",
-    description: "Grounded design celebrating natural elements through earthy color palettes and organic forms.",
-    image: "/Posters/Poster (9).jpg",
-    dominantColor: "forest-green",
-    year: "2023",
-    category: "Environmental",
+    title: "Maaveeran",
+    description: "Low-Quality Poster: Maaveeran",
+    image: "/Posters/Low-Quality/Maaveeran.jpg",
+    dominantColor: "gray",
+    year: "",
+    category: "Low-Quality",
   },
   {
     id: 10,
-    title: "SOLAR FLARE",
-    description: "Energetic composition capturing the power of the sun through dynamic typography and warm colors.",
-    image: "/Posters/Poster (10).jpg",
-    dominantColor: "golden-yellow",
-    year: "2024",
-    category: "Typography",
+    title: "Retro",
+    description: "Low-Quality Poster: Retro",
+    image: "/Posters/Low-Quality/Retro.jpg",
+    dominantColor: "gray",
+    year: "",
+    category: "Low-Quality",
   },
   {
     id: 11,
-    title: "CRIMSON TIDE",
-    description:
-      "Powerful red-dominated design exploring themes of passion and intensity through bold visual language.",
-    image: "/Posters/Poster (11).jpg",
-    dominantColor: "crimson-red",
-    year: "2023",
-    category: "Poster Design",
+    title: "GTA",
+    description: "Low-Quality Poster: GTA",
+    image: "/Posters/Low-Quality/GTA.jpg",
+    dominantColor: "gray",
+    year: "",
+    category: "Low-Quality",
   },
   {
     id: 12,
-    title: "COPPER DREAMS",
-    description: "Metallic-inspired design featuring copper tones and industrial textures for a modern aesthetic.",
-    image: "/Posters/Poster (12).jpg",
-    dominantColor: "burnt-orange",
-    year: "2024",
-    category: "Industrial",
+    title: "GOAT",
+    description: "Low-Quality Poster: GOAT",
+    image: "/Posters/Low-Quality/GOAT.jpg",
+    dominantColor: "gray",
+    year: "",
+    category: "Low-Quality",
   },
   {
     id: 13,
-    title: "VIOLET STORM",
-    description: "Dynamic purple composition representing creative energy and artistic transformation.",
-    image: "/Posters/Poster (13).jpg",
-    dominantColor: "electric-purple",
-    year: "2024",
-    category: "Abstract",
+    title: "Hunter",
+    description: "Low-Quality Poster: Hunter",
+    image: "/Posters/Low-Quality/Hunter.jpg",
+    dominantColor: "gray",
+    year: "",
+    category: "Low-Quality",
   },
 ]
 
@@ -272,22 +269,29 @@ export default function PosterGallery() {
               exit={{ scale: 0.8, opacity: 0 }}
               onClick={e => e.stopPropagation()}
             >
-              {/* Close Button */}
+              {/* Close Button - move to top-left */}
               <button
-                className="absolute top-4 right-4 z-10 text-charcoal-black hover:text-crimson-red transition-colors bg-white/80 rounded-full p-2 shadow-lg text-2xl md:text-3xl"
+                className="absolute top-4 left-4 z-10 text-charcoal-black hover:text-crimson-red transition-colors bg-white/80 rounded-full p-2 shadow-lg text-2xl md:text-3xl"
                 onClick={() => setSelectedPoster(null)}
                 aria-label="Close"
               >
                 <X size={32} />
               </button>
-              {/* Image */}
-              <div className="flex-1 flex items-center justify-center bg-neutral-100 overflow-auto p-4 min-w-0">
+              {/* Image and Download */}
+              <div className="flex-1 flex flex-col items-center justify-center bg-neutral-100 overflow-auto p-4 min-w-0">
                 <img
                   src={selectedPoster.image || "/placeholder.svg"}
                   alt={selectedPoster.title}
-                  className="max-h-[90vh] max-w-full w-auto h-auto rounded shadow-lg object-contain"
+                  className="max-h-[70vh] max-w-full w-auto h-auto rounded shadow-lg object-contain mb-4"
                   style={{ margin: '0 auto' }}
                 />
+                <a
+                  href={selectedPoster.image}
+                  download
+                  className="inline-block bg-crimson-red text-paper-white px-6 py-2 rounded font-semibold shadow hover:bg-charcoal-black transition-colors text-center mb-4"
+                >
+                  Download Poster
+                </a>
               </div>
               {/* Content */}
               <div className="flex-1 p-8 flex flex-col justify-center overflow-auto min-w-0 max-h-[90vh]">
@@ -301,13 +305,6 @@ export default function PosterGallery() {
                   <span className="bg-dust-grey/20 px-3 py-1 rounded">{selectedPoster.category}</span>
                   <span>{selectedPoster.year}</span>
                 </div>
-                <a
-                  href={selectedPoster.image}
-                  download
-                  className="inline-block bg-crimson-red text-paper-white px-6 py-2 rounded font-semibold shadow hover:bg-charcoal-black transition-colors text-center"
-                >
-                  Download Poster
-                </a>
               </div>
             </motion.div>
           </motion.div>
