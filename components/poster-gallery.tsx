@@ -264,27 +264,36 @@ export default function PosterGallery() {
               exit={{ scale: 0.8, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex flex-col md:flex-row">
+              <div className="flex flex-col md:flex-row max-h-[80vh]">
                 {/* Image */}
-                <div className="md:w-1/2 aspect-[210/297] relative">
-                  <Image
+                <div className="md:w-1/2 flex items-center justify-center overflow-auto p-4">
+                  <img
                     src={selectedPoster.image || "/placeholder.svg"}
                     alt={selectedPoster.title}
-                    fill
-                    className="object-cover"
+                    className="max-h-[70vh] w-auto rounded shadow-lg"
+                    style={{ objectFit: 'contain', display: 'block', margin: '0 auto' }}
                   />
                 </div>
 
                 {/* Content */}
-                <div className="md:w-1/2 p-8 flex flex-col justify-center">
+                <div className="md:w-1/2 p-8 flex flex-col justify-center overflow-auto max-h-[70vh]">
                   <h3 className="text-4xl font-anton font-bold text-charcoal-black mb-4 tracking-wider">
                     {selectedPoster.title}
                   </h3>
-                  <p className="text-dust-grey mb-6 leading-relaxed">{selectedPoster.description}</p>
-                  <div className="flex items-center gap-4 text-sm text-dust-grey">
+                  <p className="text-dust-grey mb-6 leading-relaxed whitespace-pre-line">
+                    {selectedPoster.description}
+                  </p>
+                  <div className="flex items-center gap-4 text-sm text-dust-grey mb-6">
                     <span className="bg-dust-grey/20 px-3 py-1 rounded">{selectedPoster.category}</span>
                     <span>{selectedPoster.year}</span>
                   </div>
+                  <a
+                    href={selectedPoster.image}
+                    download
+                    className="inline-block bg-crimson-red text-paper-white px-6 py-2 rounded font-semibold shadow hover:bg-charcoal-black transition-colors text-center"
+                  >
+                    Download Poster
+                  </a>
                 </div>
               </div>
 
