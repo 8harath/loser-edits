@@ -30,12 +30,12 @@ const posters: Poster[] = [
   {
     id: 2,
     title: "Kuruma",
-    description: "Inspired by the aesthetics of a 'wanted' poster, Kurma is a layered, detail-rich composition that blends cultural references with visual storytelling. The piece features three central figures—Tony, Sam, and a third artist—each embedded with personalized elements: a Dolo 650 strip behind Tony nods to his debut, while a retro digital camera placed behind Sam hints at his passion for visual media.",
+    description: "Inspired by the aesthetics of a 'wanted' poster, Kurma is a layered, detail-rich composition that blends cultural references with visual storytelling. The piece features three central figures—Tony, Sam, and a third artist—each embedded with personalized elements: a Dolo 650 strip behind Tony nods to his debut, while a retro digital camera placed behind Sam hints at his passion for visual media. The chain element, extending toward the viewer and looping back, adds dynamic depth and controlled chaos to the layout. A reference to Dina Malar grounds the design in local culture, while the overall composition mirrors the group's playful take on fame and recognition following their song release.", 
     image: "/Posters/Low-Quality/Kuruma.jpg",
     dominantColor: "gray",
     year: "",
     category: "",
-    extraDescription: "The chain element, extending toward the viewer and looping back, adds dynamic depth and controlled chaos to the layout. A reference to Dina Malar grounds the design in local culture, while the overall composition mirrors the group's playful take on fame and recognition following their song release.",
+    extraDescription: "",
   },
   {
     id: 3,
@@ -50,7 +50,7 @@ const posters: Poster[] = [
   {
     id: 4,
     title: "Paadai",
-    description: "Designed for the upcoming track 'Padai', this poster draws from Tamil cultural rituals associated with death, blending personal photography with symbolic storytelling. The central image—a CD deck photographed during the artist's college days—anchors the composition, finally finding purpose in this evocative visual. Details like 'Tony Sam 8C Records' inscribed in the corner and the vertical 'Releasing Soon' text beside the title deepen its narrative layers. A hidden Tamil phrase, Padai Ethiralam Ah ('Shall we begin the ritual?'), adds cultural texture. With retro elements like vintage typography, radios, and haunting eyes, the poster channels an old-school aesthetic to mirror the song's solemn, reflective tone.",
+    description: " Designed for the upcoming track 'Padai', this poster draws from Tamil cultural rituals associated with death, blending personal photography with symbolic storytelling. The central image—a CD deck photographed during the artist's college days—anchors the composition, finally finding purpose in this evocative visual. Details like \"Tony Sam 8C Records\" inscribed in the corner and the vertical \"Releasing Soon\" text beside the title deepen its narrative layers. A hidden Tamil phrase, Padai Ethiralam Ah (\"Shall we begin the ritual?\"), adds cultural texture. With retro elements like vintage typography, radios, and haunting eyes, the poster channels an old-school aesthetic to mirror the song's solemn, reflective tone.",
     image: "/Posters/Low-Quality/Paadai.jpg",
     dominantColor: "gray",
     year: "",
@@ -60,7 +60,7 @@ const posters: Poster[] = [
   {
     id: 5,
     title: "The Hatefull 8",
-    description: "This poster distills the film's tension and character dynamics into a symbolic, retro-western composition. Seven guns form the visual core—each representing a principal character—while falling bullets in the corner hint at collateral damage and innocent bloodshed. Two guns are purposefully contrasted in orientation, symbolizing the moral duality between Major Marquis Warren and the man attempting a rescue, capturing the film's lack of a definitive hero or villain. Red tones evoke violence and betrayal, while the snowy backdrop reflects the story's cold, isolated setting. Designed to echo vintage western posters, the piece offers a layered visual narrative in a single frame.",
+    description: " This poster distills the film's tension and character dynamics into a symbolic, retro-western composition. Seven guns form the visual core—each representing a principal character—while falling bullets in the corner hint at collateral damage and innocent bloodshed. Two guns are purposefully contrasted in orientation, symbolizing the moral duality between Major Marquis Warren and the man attempting a rescue, capturing the film's lack of a definitive hero or villain. Red tones evoke violence and betrayal, while the snowy backdrop reflects the story's cold, isolated setting. Designed to echo vintage western posters, the piece offers a layered visual narrative in a single frame.",
     image: "/Posters/Low-Quality/The Hatefull 8.jpg",
     dominantColor: "gray",
     year: "",
@@ -70,17 +70,17 @@ const posters: Poster[] = [
   {
     id: 6,
     title: "Jocker",
-    description: "This poster explores the fragmented psychology of the Joker through intentional disarray in both form and typography. Scattered, dissolving text elements convey a sense of mental instability and visual disconnection, mirroring the character's perception of reality.",
+    description: "This poster explores the fragmented psychology of the Joker through intentional disarray in both form and typography. Scattered, dissolving text elements convey a sense of mental instability and visual disconnection, mirroring the character's perception of reality. Avoiding structured design norms, the composition embraces a broken, drifting aesthetic with phrases like \"A Film by Todd Phillips,\" \"Otavaayi Designs,\" and \"Joker\" subtly embedded. A bold and unconventional color palette—considered unsuitable for fashion—proves unexpectedly effective in this context, reinforcing the design's experimental tone. The result is a concept-driven, emotionally raw piece that embraces chaos as a design language.",
     image: "/Posters/Low-Quality/Jocker.jpg",
     dominantColor: "gray",
     year: "",
     category: "",
-    extraDescription: "Avoiding structured design norms, the composition embraces a broken, drifting aesthetic with phrases like 'A Film by Todd Phillips,' 'Otavaayi Designs,' and 'Joker' subtly embedded. A bold and unconventional color palette—considered unsuitable for fashion—proves unexpectedly effective in this context, reinforcing the design's experimental tone. The result is a concept-driven, emotionally raw piece that embraces chaos as a design language.",
+    extraDescription: "",
   },
   {
     id: 7,
     title: "Knife In the Water",
-    description: "A tribute to Roman Polanski's debut film, this poster channels a dark, psychological atmosphere through a moody palette of green and deep blue tones, reminiscent of Joker-style aesthetics. The right side of the composition captures the pivotal moment when the characters prepare to board the boat—marking the film's tonal shift—while the left side reflects the emotional consequences of the escalating tension. Central to the narrative is a symbolic pose of a character lying down, representing ego collapse and emotional unraveling. The design visually frames the power dynamics between the two men and the woman at the story's core, using layered imagery and boat-text placement to guide the viewer through its emotional arc.",
+    description: " A tribute to Roman Polanski's debut film, this poster channels a dark, psychological atmosphere through a moody palette of green and deep blue tones, reminiscent of Joker-style aesthetics. The right side of the composition captures the pivotal moment when the characters prepare to board the boat—marking the film's tonal shift—while the left side reflects the emotional consequences of the escalating tension. Central to the narrative is a symbolic pose of a character lying down, representing ego collapse and emotional unraveling. The design visually frames the power dynamics between the two men and the woman at the story's core, using layered imagery and boat-text placement to guide the viewer through its emotional arc.",
     image: "/Posters/Low-Quality/Knife In the Water.jpg",
     dominantColor: "gray",
     year: "",
@@ -105,7 +105,7 @@ const posters: Poster[] = [
     dominantColor: "gray",
     year: "",
     category: "",
-    extraDescription: "The addition of signature rusty textures and subtle text elements reinforces the overall mood, proving that simplicity—when executed with intent—can be just as powerful as complexity.",
+    extraDescription: "",
   },
   {
     id: 10,
@@ -130,7 +130,7 @@ const posters: Poster[] = [
   {
     id: 12,
     title: "GOAT",
-    description: "This fan art poster, inspired by the Tamil film GOAT, reimagines the official first-look image with a textured, comic-book aesthetic. A halftone effect, red overlay, and signature rusty textures give the piece a raw, print-like character, while grain and threshold effects enhance its 2D stylization. Additional elements—sourced from Flickr and processed into high-contrast black-and-white layers—add depth without overwhelming the composition. Built with around 10 carefully arranged layers, the design balances minimalism with mood, staying true to the artist's gritty and restrained visual style.",
+    description: " This fan art poster, inspired by the Tamil film GOAT, reimagines the official first-look image with a textured, comic-book aesthetic. A halftone effect, red overlay, and signature rusty textures give the piece a raw, print-like character, while grain and threshold effects enhance its 2D stylization. Additional elements—sourced from Flickr and processed into high-contrast black-and-white layers—add depth without overwhelming the composition. Built with around 10 carefully arranged layers, the design balances minimalism with mood, staying true to the artist's gritty and restrained visual style.",
     image: "/Posters/Low-Quality/GOAT.jpg",
     dominantColor: "gray",
     year: "",
@@ -266,9 +266,9 @@ export default function PosterGallery() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            {/* Modal Content */}
+            {/* Modal Content - Side by Side Layout, Scrollable */}
             <motion.div
-              className="relative w-full max-w-4xl mx-auto rounded-3xl shadow-2xl bg-white/30 backdrop-blur-2xl border border-white/20 p-0 flex flex-col items-center overflow-hidden"
+              className="relative w-full max-w-4xl mx-auto rounded-3xl shadow-2xl bg-white/30 backdrop-blur-2xl border border-white/20 p-0 flex flex-row items-stretch overflow-hidden max-h-[90vh] overflow-y-auto"
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.85, opacity: 0 }}
@@ -282,33 +282,36 @@ export default function PosterGallery() {
               >
                 <X size={28} />
               </button>
-              {/* Gradient/Glass background behind image */}
-              <div className="w-full flex flex-col items-center justify-center p-8 pt-12 bg-gradient-to-b from-white/60 to-white/20">
+              {/* Left: Poster Image */}
+              <div className="flex-1 min-w-0 flex items-center justify-center bg-white/80 p-6 overflow-auto">
                 <img
                   src={selectedPoster.image || "/placeholder.svg"}
                   alt={selectedPoster.title}
-                  className="max-h-[55vh] w-auto rounded-2xl shadow-xl object-contain border border-white/30 mb-6"
+                  className="max-h-[60vh] w-auto rounded-2xl shadow-xl object-contain border border-white/30"
                   style={{ background: 'rgba(255,255,255,0.1)' }}
                 />
-                <a
-                  href={selectedPoster.image}
-                  download
-                  className="inline-block bg-crimson-red text-paper-white px-8 py-2 rounded-full font-bold shadow hover:bg-charcoal-black transition-colors text-lg mb-6"
-                >
-                  Download Poster
-                </a>
-                <h3 className="text-4xl font-anton font-bold text-charcoal-black mb-2 tracking-wide text-center">
+              </div>
+              {/* Right: Text Content, Scrollable if needed */}
+              <div className="flex-1 min-w-0 flex flex-col justify-center bg-white/95 p-8 overflow-y-auto">
+                <h3 className="text-3xl md:text-4xl font-anton font-bold text-crimson-red mb-4 tracking-wide text-left">
                   {selectedPoster.title}
                 </h3>
-                <p className="text-dust-grey text-lg leading-relaxed whitespace-pre-line text-center max-h-32 overflow-y-auto px-2 mb-4">
+                <p className="text-dust-grey text-lg leading-relaxed whitespace-pre-line text-left mb-6">
                   {selectedPoster.description}
                 </p>
                 {/* Extra Description Paragraph */}
                 {selectedPoster.extraDescription && (
-                  <p className="text-charcoal-black text-base leading-relaxed whitespace-pre-line text-center max-h-32 overflow-y-auto px-2 mb-2 font-medium">
+                  <p className="text-charcoal-black text-base leading-relaxed whitespace-pre-line text-left mb-4 font-medium">
                     {selectedPoster.extraDescription}
                   </p>
                 )}
+                <a
+                  href={selectedPoster.image}
+                  download
+                  className="inline-block bg-crimson-red text-paper-white px-8 py-2 rounded-full font-bold shadow hover:bg-charcoal-black transition-colors text-lg mt-2 w-fit"
+                >
+                  Download Poster
+                </a>
               </div>
             </motion.div>
           </motion.div>
