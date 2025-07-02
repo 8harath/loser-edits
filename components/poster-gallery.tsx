@@ -120,7 +120,7 @@ const posters: Poster[] = [
   {
     id: 11,
     title: "GTA",
-    description: "Poster: GTA",
+    description: "Set against a retro neon-orange and purple palette, this collage-style poster captures the sun-soaked grit of Vice City through a series of cinematic snapshots. Centered on protagonists Lucia and Jason, each frame reflects a facet of the game's world—from chaotic chases and street confrontations to quieter, character-driven moments. Visual elements like palm trees, vintage cars, firearms, and nightlife scenes ground the design in the game's Miami-inspired setting. A grainy texture evokes the feel of an old crime comic or VHS-era film, while the Grand Theft Auto logo anchors the piece within the iconic franchise. The poster distills GTA VI's tone: fast, raw, and deeply embedded in the pulse of modern culture.",
     image: "/Posters/Low-Quality/GTA.jpg",
     dominantColor: "gray",
     year: "",
