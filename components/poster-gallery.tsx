@@ -18,9 +18,9 @@ interface Poster {
 const posters: Poster[] = [
   {
     id: 1,
-    title: "GOAT",
+    title: "The Hateful 8",
     description:
-      "Bold typographic poster exploring the concept of greatness through distressed textures and high-contrast design.",
+      `Poster name : The hateful 8\n\nThis poster visually encapsulates the essence of the film, using symbolism to hint at the narrative without revealing it outright. At the core of the composition are seven guns—each representing one of the seven main characters who ultimately turn on one another. The bullets falling from the top right corner signify innocent bloodshed, symbolizing casualties like the van and wagon drivers—those caught in the crossfire. Among the seven guns, two are positioned in direct contrast: one pointing down, the other in reverse. These represent the duality between two central figures—Major Wallace and the man who arrives to rescue the captured woman. Though the story avoids a clear-cut hero-villain dynamic, it thrives on character contrast. The red tones signify blood and violence, while the snowy backdrop alludes to the film's cold, unforgiving setting. The overall aesthetic leans into a retro-western style, reflecting the film's 1890s setting. This design aims to tell the story in a single frame, embracing the spirit of classic western posters with modern narrative depth.`,
     image: "/Posters/Poster (1).jpg",
     dominantColor: "crimson-red",
     year: "2024",
