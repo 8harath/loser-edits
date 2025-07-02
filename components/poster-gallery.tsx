@@ -247,55 +247,48 @@ export default function PosterGallery() {
       <AnimatePresence>
         {selectedPoster && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-lg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             {/* Modal Content */}
             <motion.div
-              className="relative bg-paper-white rounded-lg shadow-2xl w-full h-full max-w-6xl max-h-[98vh] flex flex-col md:flex-row overflow-hidden"
-              initial={{ scale: 0.8, opacity: 0 }}
+              className="relative w-full max-w-2xl mx-auto rounded-3xl shadow-2xl bg-white/30 backdrop-blur-2xl border border-white/20 p-0 flex flex-col items-center overflow-hidden animate-fadeIn"
+              initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
+              exit={{ scale: 0.85, opacity: 0 }}
               onClick={e => e.stopPropagation()}
             >
-              {/* Close Button - move to top-left */}
+              {/* Close Button - floating top right */}
               <button
-                className="absolute top-4 left-4 z-10 text-charcoal-black hover:text-crimson-red transition-colors bg-white/80 rounded-full p-2 shadow-lg text-2xl md:text-3xl"
+                className="absolute top-4 right-4 z-10 bg-white/80 hover:bg-white text-charcoal-black hover:text-crimson-red transition-colors rounded-full p-2 shadow-lg text-2xl"
                 onClick={() => setSelectedPoster(null)}
                 aria-label="Close"
               >
-                <X size={32} />
+                <X size={28} />
               </button>
-              {/* Image and Download */}
-              <div className="flex-1 flex flex-col items-center justify-center bg-neutral-100 overflow-auto p-4 min-w-0">
+              {/* Gradient/Glass background behind image */}
+              <div className="w-full flex flex-col items-center justify-center p-6 pt-10 bg-gradient-to-b from-white/60 to-white/20">
                 <img
                   src={selectedPoster.image || "/placeholder.svg"}
                   alt={selectedPoster.title}
-                  className="max-h-[70vh] max-w-full w-auto h-auto rounded shadow-lg object-contain mb-4"
-                  style={{ margin: '0 auto' }}
+                  className="max-h-[50vh] w-auto rounded-2xl shadow-xl object-contain border border-white/30 mb-6"
+                  style={{ background: 'rgba(255,255,255,0.1)' }}
                 />
                 <a
                   href={selectedPoster.image}
                   download
-                  className="inline-block bg-crimson-red text-paper-white px-6 py-2 rounded font-semibold shadow hover:bg-charcoal-black transition-colors text-center mb-4"
+                  className="inline-block bg-crimson-red text-paper-white px-8 py-2 rounded-full font-bold shadow hover:bg-charcoal-black transition-colors text-lg mb-4"
                 >
                   Download Poster
                 </a>
-              </div>
-              {/* Content */}
-              <div className="flex-1 p-8 flex flex-col justify-center overflow-auto min-w-0 max-h-[90vh]">
-                <h3 className="text-4xl font-anton font-bold text-charcoal-black mb-4 tracking-wider">
+                <h3 className="text-3xl font-anton font-bold text-charcoal-black mb-2 tracking-wide text-center">
                   {selectedPoster.title}
                 </h3>
-                <p className="text-dust-grey mb-6 leading-relaxed whitespace-pre-line">
+                <p className="text-dust-grey text-base leading-relaxed whitespace-pre-line text-center max-h-40 overflow-y-auto px-2">
                   {selectedPoster.description}
                 </p>
-                <div className="flex items-center gap-4 text-sm text-dust-grey mb-6">
-                  <span className="bg-dust-grey/20 px-3 py-1 rounded">{selectedPoster.category}</span>
-                  <span>{selectedPoster.year}</span>
-                </div>
               </div>
             </motion.div>
           </motion.div>
