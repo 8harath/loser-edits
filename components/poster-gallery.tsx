@@ -268,7 +268,7 @@ export default function PosterGallery() {
           >
             {/* Modal Content - Side by Side Layout, Scrollable */}
             <motion.div
-              className="relative w-full max-w-4xl mx-auto rounded-3xl shadow-2xl bg-white/30 backdrop-blur-2xl border border-white/20 p-0 flex flex-row items-stretch overflow-hidden max-h-[90vh] overflow-y-auto"
+              className="relative w-full max-w-4xl mx-auto rounded-3xl shadow-2xl bg-white/30 backdrop-blur-2xl border border-white/20 p-0 flex flex-row items-stretch overflow-hidden max-h-[90vh] m-4"
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.85, opacity: 0 }}
@@ -292,26 +292,30 @@ export default function PosterGallery() {
                 />
               </div>
               {/* Right: Text Content, Scrollable if needed */}
-              <div className="flex-1 min-w-0 flex flex-col justify-center bg-white/95 p-8 overflow-y-auto">
-                <h3 className="text-3xl md:text-4xl font-anton font-bold text-crimson-red mb-4 tracking-wide text-left">
-                  {selectedPoster.title}
-                </h3>
-                <p className="text-dust-grey text-lg leading-relaxed whitespace-pre-line text-left mb-6">
-                  {selectedPoster.description}
-                </p>
-                {/* Extra Description Paragraph */}
-                {selectedPoster.extraDescription && (
-                  <p className="text-charcoal-black text-base leading-relaxed whitespace-pre-line text-left mb-4 font-medium">
-                    {selectedPoster.extraDescription}
+              <div className="flex-1 min-w-0 flex flex-col justify-start bg-white/95 p-10 overflow-y-auto min-h-0">
+                <div className="pt-2">
+                  <h3 className="text-3xl md:text-4xl font-anton font-bold text-crimson-red mb-6 mt-2 tracking-wide text-left leading-tight px-2">
+                    {selectedPoster.title}
+                  </h3>
+                  <p className="text-dust-grey text-lg leading-relaxed whitespace-pre-line text-left mb-6 px-2">
+                    {selectedPoster.description}
                   </p>
-                )}
-                <a
-                  href={selectedPoster.image}
-                  download
-                  className="inline-block bg-crimson-red text-paper-white px-8 py-2 rounded-full font-bold shadow hover:bg-charcoal-black transition-colors text-lg mt-2 w-fit"
-                >
-                  Download Poster
-                </a>
+                  {/* Extra Description Paragraph */}
+                  {selectedPoster.extraDescription && (
+                    <p className="text-charcoal-black text-base leading-relaxed whitespace-pre-line text-left mb-4 font-medium px-2">
+                      {selectedPoster.extraDescription}
+                    </p>
+                  )}
+                  <div className="px-2">
+                    <a
+                      href={selectedPoster.image}
+                      download
+                      className="inline-block bg-crimson-red text-paper-white px-8 py-2 rounded-full font-bold shadow hover:bg-charcoal-black transition-colors text-lg mt-2 w-fit"
+                    >
+                      Download Poster
+                    </a>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </motion.div>
