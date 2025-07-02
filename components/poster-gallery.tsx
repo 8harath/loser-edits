@@ -261,59 +261,72 @@ export default function PosterGallery() {
       <AnimatePresence>
         {selectedPoster && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-lg"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onClick={() => setSelectedPoster(null)}
           >
-            {/* Modal Content - Side by Side Layout, Scrollable */}
+            {/* Modal Content - Redesigned Layout */}
             <motion.div
-              className="relative w-full max-w-4xl mx-auto rounded-3xl shadow-2xl bg-white/30 backdrop-blur-2xl border border-white/20 p-0 flex flex-row items-stretch overflow-hidden max-h-[90vh] m-4"
-              initial={{ scale: 0.85, opacity: 0 }}
+              className="relative w-full max-w-6xl max-h-[95vh] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.85, opacity: 0 }}
+              exit={{ scale: 0.9, opacity: 0 }}
               onClick={e => e.stopPropagation()}
             >
-              {/* Close Button - floating top right */}
-              <button
-                className="absolute top-4 right-4 z-10 bg-white/80 hover:bg-white text-charcoal-black hover:text-crimson-red transition-colors rounded-full p-2 shadow-lg text-2xl"
-                onClick={() => setSelectedPoster(null)}
-                aria-label="Close"
-              >
-                <X size={28} />
-              </button>
-              {/* Left: Poster Image */}
-              <div className="flex-1 min-w-0 flex items-center justify-center bg-white/80 p-6 overflow-auto">
-                <img
-                  src={selectedPoster.image || "/placeholder.svg"}
-                  alt={selectedPoster.title}
-                  className="max-h-[60vh] w-auto rounded-2xl shadow-xl object-contain border border-white/30"
-                  style={{ background: 'rgba(255,255,255,0.1)' }}
-                />
+              {/* Header with Title and Close Button */}
+              <div className="bg-crimson-red text-white p-6 flex items-center justify-between">
+                <h3 className="text-2xl md:text-3xl font-anton font-bold tracking-wide">
+                  {selectedPoster.title}
+                </h3>
+                <button
+                  className="bg-white/20 hover:bg-white/30 text-white rounded-full p-2 transition-colors"
+                  onClick={() => setSelectedPoster(null)}
+                  aria-label="Close"
+                >
+                  <X size={24} />
+                </button>
               </div>
-              {/* Right: Text Content, Scrollable if needed */}
-              <div className="flex-1 min-w-0 flex flex-col justify-start bg-white/95 p-10 overflow-y-auto min-h-0">
-                <div className="pt-2">
-                  <h3 className="text-3xl md:text-4xl font-anton font-bold text-crimson-red mb-6 mt-2 tracking-wide text-left leading-tight px-2">
-                    {selectedPoster.title}
-                  </h3>
-                  <p className="text-dust-grey text-lg leading-relaxed whitespace-pre-line text-left mb-6 px-2">
-                    {selectedPoster.description}
-                  </p>
-                  {/* Extra Description Paragraph */}
-                  {selectedPoster.extraDescription && (
-                    <p className="text-charcoal-black text-base leading-relaxed whitespace-pre-line text-left mb-4 font-medium px-2">
-                      {selectedPoster.extraDescription}
-                    </p>
-                  )}
-                  <div className="px-2">
-                    <a
-                      href={selectedPoster.image}
-                      download
-                      className="inline-block bg-crimson-red text-paper-white px-8 py-2 rounded-full font-bold shadow hover:bg-charcoal-black transition-colors text-lg mt-2 w-fit"
-                    >
-                      Download Poster
-                    </a>
+
+              {/* Content Area */}
+              <div className="flex flex-1 min-h-0">
+                {/* Left: Poster Image */}
+                <div className="flex-1 bg-gray-50 flex items-center justify-center p-8">
+                  <img
+                    src={selectedPoster.image || "/placeholder.svg"}
+                    alt={selectedPoster.title}
+                    className="max-h-full max-w-full object-contain rounded-lg shadow-lg"
+                  />
+                </div>
+
+                {/* Right: Description */}
+                <div className="flex-1 bg-white p-8 overflow-y-auto">
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="text-lg font-bold text-charcoal-black mb-3">About This Poster</h4>
+                      <p className="text-dust-grey text-base leading-relaxed whitespace-pre-line">
+                        {selectedPoster.description}
+                      </p>
+                    </div>
+                    
+                    {selectedPoster.extraDescription && (
+                      <div>
+                        <p className="text-charcoal-black text-base leading-relaxed whitespace-pre-line">
+                          {selectedPoster.extraDescription}
+                        </p>
+                      </div>
+                    )}
+                    
+                    <div className="pt-4">
+                      <a
+                        href={selectedPoster.image}
+                        download
+                        className="inline-flex items-center bg-crimson-red text-white px-6 py-3 rounded-lg font-semibold hover:bg-charcoal-black transition-colors shadow-lg"
+                      >
+                        Download High Quality
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
