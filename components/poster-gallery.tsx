@@ -140,7 +140,7 @@ const posters: Poster[] = [
   {
     id: 13,
     title: "Hunter",
-    description: "Poster: Hunter",
+    description: "This poster for the Royal Enfield Hunter 350 blends retro aesthetics with urban energy, using a bold orange-and-black palette and dynamic, warped typography to evoke speed and motion. Centered around a clean, angled shot of the motorcycle, the design showcases its compact form and street-ready appeal. A brief highlight section emphasizes the Hunter's 349cc engine, agile geometry, shorter wheelbase, and lightweight build—ideal for navigating city streets. Balancing vintage poster flair with modern design sensibilities, the composition captures the Hunter 350's identity as a stylish, high-performance machine built for the urban rider.",
     image: "/Posters/Low-Quality/Hunter.jpg",
     dominantColor: "gray",
     year: "",
