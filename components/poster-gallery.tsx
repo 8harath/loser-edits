@@ -110,7 +110,7 @@ const posters: Poster[] = [
   {
     id: 10,
     title: "Retro",
-    description: "Poster: Retro",
+    description: "Featuring actor Suriya, Retro channels the visual language of vintage Tamil cinema through a gritty monochrome palette of yellow-orange and bold blacks. Structured in a stylized grid layout reminiscent of comic panels, the poster captures fragments of the character's emotional and narrative arc—from aggression and introspection to moments of calm. The central frame, with Suriya seated and gripping a weapon, anchors the design with intensity and raw emotion. Complemented by the tagline \"A laughter, a war, a love awaits for the one!!\", the poster hints at a genre-blending storyline. With retro typography and cinematic framing, the piece pays homage to old-school aesthetics while reflecting themes of conflict, nostalgia, and classic heroism under Karthik Subbaraj's direction.",
     image: "/Posters/Low-Quality/Retro.jpg",
     dominantColor: "gray",
     year: "",
