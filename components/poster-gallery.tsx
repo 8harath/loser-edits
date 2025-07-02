@@ -13,6 +13,7 @@ interface Poster {
   dominantColor: string
   year: string
   category: string
+  extraDescription?: string
 }
 
 const posters: Poster[] = [
@@ -24,6 +25,7 @@ const posters: Poster[] = [
     dominantColor: "gray",
     year: "",
     category: "",
+    extraDescription: "",
   },
   {
     id: 2,
@@ -33,6 +35,7 @@ const posters: Poster[] = [
     dominantColor: "gray",
     year: "",
     category: "",
+    extraDescription: "",
   },
   {
     id: 3,
@@ -42,6 +45,7 @@ const posters: Poster[] = [
     dominantColor: "gray",
     year: "",
     category: "",
+    extraDescription: "",
   },
   {
     id: 4,
@@ -51,6 +55,7 @@ const posters: Poster[] = [
     dominantColor: "gray",
     year: "",
     category: "",
+    extraDescription: "",
   },
   {
     id: 5,
@@ -60,6 +65,7 @@ const posters: Poster[] = [
     dominantColor: "gray",
     year: "",
     category: "",
+    extraDescription: "",
   },
   {
     id: 6,
@@ -69,6 +75,7 @@ const posters: Poster[] = [
     dominantColor: "gray",
     year: "",
     category: "",
+    extraDescription: "",
   },
   {
     id: 7,
@@ -78,6 +85,7 @@ const posters: Poster[] = [
     dominantColor: "gray",
     year: "",
     category: "",
+    extraDescription: "",
   },
   {
     id: 8,
@@ -87,6 +95,7 @@ const posters: Poster[] = [
     dominantColor: "gray",
     year: "",
     category: "",
+    extraDescription: "",
   },
   {
     id: 9,
@@ -96,6 +105,7 @@ const posters: Poster[] = [
     dominantColor: "gray",
     year: "",
     category: "",
+    extraDescription: "",
   },
   {
     id: 10,
@@ -105,6 +115,7 @@ const posters: Poster[] = [
     dominantColor: "gray",
     year: "",
     category: "",
+    extraDescription: "",
   },
   {
     id: 11,
@@ -114,6 +125,7 @@ const posters: Poster[] = [
     dominantColor: "gray",
     year: "",
     category: "",
+    extraDescription: "",
   },
   {
     id: 12,
@@ -123,6 +135,7 @@ const posters: Poster[] = [
     dominantColor: "gray",
     year: "",
     category: "",
+    extraDescription: "",
   },
   {
     id: 13,
@@ -132,6 +145,7 @@ const posters: Poster[] = [
     dominantColor: "gray",
     year: "",
     category: "",
+    extraDescription: "",
   },
 ]
 
@@ -254,7 +268,7 @@ export default function PosterGallery() {
           >
             {/* Modal Content */}
             <motion.div
-              className="relative w-full max-w-2xl mx-auto rounded-3xl shadow-2xl bg-white/30 backdrop-blur-2xl border border-white/20 p-0 flex flex-col items-center overflow-hidden animate-fadeIn"
+              className="relative w-full max-w-4xl mx-auto rounded-3xl shadow-2xl bg-white/30 backdrop-blur-2xl border border-white/20 p-0 flex flex-col items-center overflow-hidden"
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.85, opacity: 0 }}
@@ -269,26 +283,32 @@ export default function PosterGallery() {
                 <X size={28} />
               </button>
               {/* Gradient/Glass background behind image */}
-              <div className="w-full flex flex-col items-center justify-center p-6 pt-10 bg-gradient-to-b from-white/60 to-white/20">
+              <div className="w-full flex flex-col items-center justify-center p-8 pt-12 bg-gradient-to-b from-white/60 to-white/20">
                 <img
                   src={selectedPoster.image || "/placeholder.svg"}
                   alt={selectedPoster.title}
-                  className="max-h-[50vh] w-auto rounded-2xl shadow-xl object-contain border border-white/30 mb-6"
+                  className="max-h-[55vh] w-auto rounded-2xl shadow-xl object-contain border border-white/30 mb-6"
                   style={{ background: 'rgba(255,255,255,0.1)' }}
                 />
                 <a
                   href={selectedPoster.image}
                   download
-                  className="inline-block bg-crimson-red text-paper-white px-8 py-2 rounded-full font-bold shadow hover:bg-charcoal-black transition-colors text-lg mb-4"
+                  className="inline-block bg-crimson-red text-paper-white px-8 py-2 rounded-full font-bold shadow hover:bg-charcoal-black transition-colors text-lg mb-6"
                 >
                   Download Poster
                 </a>
-                <h3 className="text-3xl font-anton font-bold text-charcoal-black mb-2 tracking-wide text-center">
+                <h3 className="text-4xl font-anton font-bold text-charcoal-black mb-2 tracking-wide text-center">
                   {selectedPoster.title}
                 </h3>
-                <p className="text-dust-grey text-base leading-relaxed whitespace-pre-line text-center max-h-40 overflow-y-auto px-2">
+                <p className="text-dust-grey text-lg leading-relaxed whitespace-pre-line text-center max-h-32 overflow-y-auto px-2 mb-4">
                   {selectedPoster.description}
                 </p>
+                {/* Extra Description Paragraph */}
+                {selectedPoster.extraDescription && (
+                  <p className="text-charcoal-black text-base leading-relaxed whitespace-pre-line text-center max-h-32 overflow-y-auto px-2 mb-2 font-medium">
+                    {selectedPoster.extraDescription}
+                  </p>
+                )}
               </div>
             </motion.div>
           </motion.div>
