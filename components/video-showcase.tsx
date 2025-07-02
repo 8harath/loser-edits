@@ -97,7 +97,7 @@ export default function VideoShowcase() {
                       src={video.thumbnail}
                       alt={video.title}
                       fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="object-cover transition-all duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0"
                     />
 
                     {/* Overlay */}

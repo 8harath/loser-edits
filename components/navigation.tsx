@@ -7,10 +7,13 @@ import { Menu, X } from "lucide-react"
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [isDragging, setIsDragging] = useState(false)
+  const [windowSize, setWindowSize] = useState({ width: 1024, height: 768 })
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768)
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight })
     }
     handleResize()
     window.addEventListener("resize", handleResize)
@@ -26,17 +29,47 @@ export default function Navigation() {
 
   // Handler for mobile tap
   const handleLogoClick = () => {
-    if (isMobile) setIsOpen((prev) => !prev)
+    if (isMobile && !isDragging) setIsOpen((prev) => !prev)
+  }
+
+  // Handle drag events
+  const handleDragStart = () => {
+    setIsDragging(true)
+    setIsOpen(false)
+  }
+
+  const handleDragEnd = () => {
+    // Add a small delay to prevent click from firing immediately after drag
+    setTimeout(() => setIsDragging(false), 100)
   }
 
   return (
-    <div className="fixed top-6 right-6 z-50 flex flex-col items-end">
+    <motion.div 
+      className="fixed z-50 flex flex-col items-end"
+      initial={{ x: 24, y: 24 }}
+      drag
+      dragMomentum={false}
+      dragElastic={0.2}
+      dragConstraints={{
+        top: 10,
+        left: 10,
+        right: windowSize.width - 80,
+        bottom: windowSize.height - 80,
+      }}
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
+      whileDrag={{ scale: 1.1, zIndex: 1000 }}
+    >
       {/* Logo Button */}
       <motion.div
-        className="bg-charcoal-black/80 rounded-full shadow-lg flex items-center justify-center cursor-pointer border-2 border-white/10"
-        style={{ width: 56, height: 56 }}
-        whileHover={!isMobile ? { scale: 1.08, boxShadow: "0 0 24px #ff4d6d" } : {}}
-        onMouseEnter={() => !isMobile && setIsOpen(true)}
+        className="bg-charcoal-black/80 rounded-full shadow-lg flex items-center justify-center border-2 border-white/10"
+        style={{ 
+          width: 56, 
+          height: 56,
+          cursor: isDragging ? 'grabbing' : (isMobile ? 'pointer' : 'grab')
+        }}
+        whileHover={!isMobile && !isDragging ? { scale: 1.08, boxShadow: "0 0 24px #ff4d6d" } : {}}
+        onMouseEnter={() => !isMobile && !isDragging && setIsOpen(true)}
         onMouseLeave={() => !isMobile && setIsOpen(false)}
         onClick={handleLogoClick}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -53,7 +86,7 @@ export default function Navigation() {
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.25 }}
             style={{ minWidth: 160 }}
-            onMouseEnter={() => !isMobile && setIsOpen(true)}
+            onMouseEnter={() => !isMobile && !isDragging && setIsOpen(true)}
             onMouseLeave={() => !isMobile && setIsOpen(false)}
           >
             {navItems.map((item, index) => (
@@ -72,6 +105,6 @@ export default function Navigation() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   )
 }

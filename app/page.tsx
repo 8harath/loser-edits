@@ -8,7 +8,6 @@ import VideoShowcase from "@/components/video-showcase"
 // import ProjectsSection from "@/components/projects-section"
 import AboutSection from "@/components/about-section"
 import ContactSection from "@/components/contact-section"
-import Navigation from "@/components/navigation"
 
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -25,8 +24,6 @@ export default function HomePage() {
       <motion.div className="fixed inset-0 opacity-10 pointer-events-none" style={{ y: backgroundY }}>
         <div className="absolute inset-0 bg-noise-texture" />
       </motion.div>
-
-      <Navigation />
 
       <main className="relative z-10">
         <HeroSection />
