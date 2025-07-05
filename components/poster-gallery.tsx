@@ -287,46 +287,46 @@ export default function PosterGallery() {
               </div>
 
               {/* Content Area */}
-              <div className="flex flex-1 min-h-0">
+              <div className="flex flex-1 min-h-0 flex-col md:flex-row">
                 {/* Left: Poster Image */}
-                <div className="flex-1 bg-gray-50 flex items-center justify-center p-8">
+                <div className="flex-1 bg-gray-50 flex items-center justify-center p-4 md:p-8">
                   <img
                     src={selectedPoster.image || "/placeholder.svg"}
                     alt={selectedPoster.title}
-                    className="max-h-full max-w-full object-contain rounded-lg shadow-lg"
+                    className="max-h-60 md:max-h-full max-w-full object-contain rounded-lg shadow-lg"
                   />
                 </div>
 
                 {/* Right: Description */}
-                <div className="flex-1 bg-white p-8 overflow-y-auto">
+                <div className="flex-1 bg-white p-4 md:p-8 overflow-y-auto">
                   <div className="space-y-6">
                     {/* Title */}
                     <div>
-                      <h3 className="text-2xl md:text-3xl font-anton font-bold text-crimson-red tracking-wide mb-4">
+                      <h3 className="text-xl md:text-3xl font-anton font-bold text-crimson-red tracking-wide mb-4">
                         {selectedPoster.title}
                       </h3>
                     </div>
                     
                     <div>
-                      <h4 className="text-lg font-bold text-charcoal-black mb-3">About This Poster</h4>
-                      <p className="text-dust-grey text-base leading-relaxed whitespace-pre-line">
+                      <h4 className="text-base md:text-lg font-bold text-charcoal-black mb-3">About This Poster</h4>
+                      <p className="text-dust-grey text-sm md:text-base leading-relaxed whitespace-pre-line">
                         {selectedPoster.description}
                       </p>
                     </div>
                     
                     {selectedPoster.extraDescription && (
                       <div>
-                        <p className="text-charcoal-black text-base leading-relaxed whitespace-pre-line">
+                        <p className="text-charcoal-black text-sm md:text-base leading-relaxed whitespace-pre-line">
                           {selectedPoster.extraDescription}
                         </p>
                       </div>
                     )}
                     
-                    <div className="pt-4">
+                    <div className="pt-2 md:pt-4">
                       <a
                         href={selectedPoster.image}
                         download
-                        className="inline-flex items-center bg-crimson-red text-white px-6 py-3 rounded-lg font-semibold hover:bg-charcoal-black transition-colors shadow-lg"
+                        className="inline-flex items-center bg-crimson-red text-white px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold hover:bg-charcoal-black transition-colors shadow-lg text-sm md:text-base"
                       >
                         Download High Quality
                       </a>

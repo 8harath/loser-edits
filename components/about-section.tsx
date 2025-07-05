@@ -13,19 +13,28 @@ const skills = [
 
 const timeline = [
   {
+    year: "2025",
+    title: "Visual Creator & Storyteller",
+    description:
+      "Refined a self-driven design identity through emotionally grounded poster work and cinematic-inspired edits; actively building a body of work that speaks before words do.",
+  },
+  {
     year: "2024",
-    title: "Freelance Graphic Designer",
-    description: "Launched independent design practice focusing on poster design and brand identity.",
+    title: "Freelance Practice & College Internship",
+    description:
+      "Balanced design exploration with real-world data internship—honing discipline, detail orientation, and visual problem-solving through college projects and portfolio development.",
   },
   {
     year: "2023",
-    title: "Computer Science Studies",
-    description: "Pursuing Bachelor's degree while developing technical skills in programming and design.",
+    title: "Cinema-Driven Design Journey",
+    description:
+      "Immersed in fan-made poster design, using movies as a canvas for creative reinterpretation. Built a consistent practice around Photoshop, composition, and visual tone.",
   },
   {
     year: "2022",
-    title: "Design Foundation",
-    description: "Built strong foundation in design principles, color theory, and visual communication.",
+    title: "The Spark",
+    description:
+      "Fell in love with frames, fonts, and feeling. Began experimenting with design tools out of sheer interest—learning through observation, trial, and storytelling instincts.",
   },
 ]
 
