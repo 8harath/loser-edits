@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Anton, Roboto_Condensed, Roboto_Mono } from "next/font/google"
+import { Inter, Anton, Roboto_Condensed, Roboto_Mono, Jersey_25 } from "next/font/google"
 import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
 import "../styles/globals.css"
@@ -30,6 +30,12 @@ const robotoMono = Roboto_Mono({
   weight: ["400", "500"],
   subsets: ["latin"],
   variable: "--font-roboto-mono",
+  display: "swap",
+})
+
+const jersey25 = Jersey_25({
+  subsets: ["latin"],
+  variable: "--font-jersey25",
   display: "swap",
 })
 
@@ -80,7 +86,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/favicon.png" />
       </head>
       <body
-        className={`${inter.variable} ${anton.variable} ${robotoCondensed.variable} ${robotoMono.variable} font-inter antialiased`}
+        className={`${inter.variable} ${anton.variable} ${robotoCondensed.variable} ${robotoMono.variable} ${jersey25.variable} font-inter antialiased`}
       >
         <LoaderProvider>
           {children}

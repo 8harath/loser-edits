@@ -55,7 +55,7 @@ export default function HeroSection() {
           transition={{ duration: 0.5, delay: 0.5 }}
         >
           <motion.h1
-            className="text-6xl md:text-8xl lg:text-9xl font-anton font-black text-charcoal-black leading-none tracking-tighter"
+            className="text-6xl md:text-8xl lg:text-9xl font-jersey25 font-black text-charcoal-black leading-none tracking-tighter"
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}

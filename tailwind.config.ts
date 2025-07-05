@@ -73,6 +73,7 @@ const config: Config = {
         "roboto-condensed": ["var(--font-roboto-condensed)", "sans-serif"],
         "roboto-mono": ["var(--font-roboto-mono)", "monospace"],
         inter: ["var(--font-inter)", "sans-serif"],
+        jersey25: ["var(--font-jersey25)", "cursive"],
       },
       fontSize: {
         "8xl": "6rem",
