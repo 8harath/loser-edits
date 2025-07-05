@@ -47,14 +47,14 @@ export default function ContactSection() {
     {
       icon: <Mail className="w-6 h-6" />,
       label: "Email",
-      value: "hello@kishorek.design",
-      href: "mailto:hello@kishorek.design",
+      value: "kishoreofficial003612@gmail.com",
+      href: "mailto:kishoreofficial003612@gmail.com",
     },
     {
       icon: <Phone className="w-6 h-6" />,
       label: "Phone",
-      value: "+91 98765 43210",
-      href: "tel:+919876543210",
+      value: "7975008426",
+      href: "tel:7975008426",
     },
     {
       icon: <MapPin className="w-6 h-6" />,
