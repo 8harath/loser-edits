@@ -28,15 +28,15 @@ export default function ContactSection() {
     try {
       // Send email using EmailJS
       await emailjs.send(
-        "YOUR_SERVICE_ID", // replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID", // replace with your EmailJS template ID
+        "service_e98j8zq", // provided EmailJS service ID
+        "template_jf6gtft", // provided EmailJS template ID
         {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
         },
-        "YOUR_PUBLIC_KEY" // replace with your EmailJS public key
+        "cAzpl80amhNMiM_d1" // provided EmailJS public key
       )
 
       toast({
