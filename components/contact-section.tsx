@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
+import emailjs from "emailjs-com"
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -24,15 +25,32 @@ export default function ContactSection() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    try {
+      // Send email using EmailJS
+      await emailjs.send(
+        "YOUR_SERVICE_ID", // replace with your EmailJS service ID
+        "YOUR_TEMPLATE_ID", // replace with your EmailJS template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        "YOUR_PUBLIC_KEY" // replace with your EmailJS public key
+      )
 
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. I'll get back to you within 24 hours.",
-    })
-
-    setFormData({ name: "", email: "", subject: "", message: "" })
+      toast({
+        title: "Message Sent!",
+        description: "Thanks for reaching out. I'll get back to you within 24 hours.",
+      })
+      setFormData({ name: "", email: "", subject: "", message: "" })
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "There was a problem sending your message. Please try again later.",
+        variant: "destructive",
+      })
+    }
     setIsSubmitting(false)
   }
 
