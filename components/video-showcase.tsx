@@ -60,7 +60,7 @@ export default function VideoShowcase() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-5xl md:text-7xl font-jersey25 font-black text-charcoal-black mb-6 tracking-tighter">
+          <h2 className="text-5xl md:text-7xl font-jersey25 font-black text-paper-white mb-6 tracking-tighter">
             MOTION WORKS
           </h2>
           <p className="text-xl text-dust-grey max-w-3xl mx-auto">
