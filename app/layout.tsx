@@ -34,6 +34,7 @@ const robotoMono = Roboto_Mono({
 })
 
 const jersey25 = Jersey_25({
+  weight: "400",
   subsets: ["latin"],
   variable: "--font-jersey25",
   display: "swap",
