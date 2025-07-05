@@ -24,17 +24,17 @@ const posters: Poster[] = [
     image: "/Posters/Low-Quality/Kaasu Illa Maame.jpg",
     dominantColor: "gray",
     year: "",
-    category: "",
+    category: "Music Poster",
     extraDescription: "",
   },
   {
     id: 2,
     title: "Kuruma",
-    description: "Inspired by the aesthetics of a 'wanted' poster, Kurma is a layered, detail-rich composition that blends cultural references with visual storytelling. The piece features three central figures—Tony, Sam, and a third artist—each embedded with personalized elements: a Dolo 650 strip behind Tony nods to his debut, while a retro digital camera placed behind Sam hints at his passion for visual media. The chain element, extending toward the viewer and looping back, adds dynamic depth and controlled chaos to the layout. A reference to Dina Malar grounds the design in local culture, while the overall composition mirrors the group's playful take on fame and recognition following their song release.", 
+    description: "Inspired by the aesthetics of a 'wanted' poster, Kurma is a layered, detail-rich composition that blends cultural references with visual storytelling. The piece features three central figures—Tony, Sam, and a third artist—each embedded with personalized elements: a Dolo 650 strip behind Tony nods to his debut, while a retro digital camera placed behind Sam hints at his passion for visual media. The chain element, extending toward the viewer and looping back, adds dynamic depth and controlled chaos to the layout. A reference to Dina Malar grounds the design in local culture, while the overall composition mirrors the group's playful take on fame and recognition following their song release.",
     image: "/Posters/Low-Quality/Kuruma.jpg",
     dominantColor: "gray",
     year: "",
-    category: "",
+    category: "Music Poster",
     extraDescription: "",
   },
   {
@@ -44,7 +44,7 @@ const posters: Poster[] = [
     image: "/Posters/Low-Quality/She Was.jpg",
     dominantColor: "gray",
     year: "",
-    category: "",
+    category: "Music Poster",
     extraDescription: "",
   },
   {
@@ -54,7 +54,7 @@ const posters: Poster[] = [
     image: "/Posters/Low-Quality/Paadai.jpg",
     dominantColor: "gray",
     year: "",
-    category: "",
+    category: "Music Poster",
     extraDescription: "",
   },
   {
@@ -64,7 +64,7 @@ const posters: Poster[] = [
     image: "/Posters/Low-Quality/The Hatefull 8.jpg",
     dominantColor: "gray",
     year: "",
-    category: "",
+    category: "Film Poster",
     extraDescription: "",
   },
   {
@@ -74,7 +74,7 @@ const posters: Poster[] = [
     image: "/Posters/Low-Quality/Jocker.jpg",
     dominantColor: "gray",
     year: "",
-    category: "",
+    category: "Fan Art",
     extraDescription: "",
   },
   {
@@ -84,7 +84,7 @@ const posters: Poster[] = [
     image: "/Posters/Low-Quality/Knife In the Water.jpg",
     dominantColor: "gray",
     year: "",
-    category: "",
+    category: "Film Poster",
     extraDescription: "",
   },
   {
@@ -94,7 +94,7 @@ const posters: Poster[] = [
     image: "/Posters/Low-Quality/Ford.jpg",
     dominantColor: "gray",
     year: "",
-    category: "",
+    category: "Fan Art",
     extraDescription: "",
   },
   {
@@ -104,7 +104,7 @@ const posters: Poster[] = [
     image: "/Posters/Low-Quality/Maaveeran.jpg",
     dominantColor: "gray",
     year: "",
-    category: "",
+    category: "Film Poster",
     extraDescription: "",
   },
   {
@@ -114,7 +114,7 @@ const posters: Poster[] = [
     image: "/Posters/Low-Quality/Retro.jpg",
     dominantColor: "gray",
     year: "",
-    category: "",
+    category: "Film Poster",
     extraDescription: "",
   },
   {
@@ -124,7 +124,7 @@ const posters: Poster[] = [
     image: "/Posters/Low-Quality/GTA.jpg",
     dominantColor: "gray",
     year: "",
-    category: "",
+    category: "Fan Art",
     extraDescription: "",
   },
   {
@@ -134,7 +134,7 @@ const posters: Poster[] = [
     image: "/Posters/Low-Quality/GOAT.jpg",
     dominantColor: "gray",
     year: "",
-    category: "",
+    category: "Fan Art",
     extraDescription: "",
   },
   {
@@ -144,16 +144,16 @@ const posters: Poster[] = [
     image: "/Posters/Low-Quality/Hunter.jpg",
     dominantColor: "gray",
     year: "",
-    category: "",
+    category: "Fan Art",
     extraDescription: "",
   },
 ]
 
+const categories = ["All", "Film Poster", "Music Poster", "Fan Art"];
+
 export default function PosterGallery() {
   const [selectedPoster, setSelectedPoster] = useState<Poster | null>(null)
   const [filter, setFilter] = useState("All")
-
-  const categories = ["All"]
 
   const filteredPosters = filter === "All" ? posters : posters.filter((poster) => poster.category === filter)
 
@@ -227,6 +227,8 @@ export default function PosterGallery() {
                 layout
                 whileHover={{ y: -10 }}
                 onClick={() => setSelectedPoster(poster)}
+                animate={{ opacity: filter === "All" || poster.category === filter ? 1 : 0.1, scale: filter === "All" || poster.category === filter ? 1 : 0.95 }}
+                style={{ pointerEvents: filter === "All" || poster.category === filter ? "auto" : "none" }}
               >
                 {/* Poster Card */}
                 <div className="relative bg-white shadow-lg overflow-hidden aspect-[210/297] group-hover:shadow-2xl transition-all duration-300">
