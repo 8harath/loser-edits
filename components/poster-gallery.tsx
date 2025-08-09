@@ -164,8 +164,17 @@ const categories = ["All", "Film Poster", "Music Poster", "Fan Art"];
 export default function PosterGallery() {
   const [selectedPoster, setSelectedPoster] = useState<Poster | null>(null)
   const [filter, setFilter] = useState("All")
+  const [isInitialLoad, setIsInitialLoad] = useState(true)
 
   const filteredPosters = filter === "All" ? posters : posters.filter((poster) => poster.category === filter)
+
+  // Handle initial load animation
+  useEffect(() => {
+    if (isInitialLoad) {
+      const timer = setTimeout(() => setIsInitialLoad(false), 100)
+      return () => clearTimeout(timer)
+    }
+  }, [])
 
   // Prevent background scroll when modal is open
   useEffect(() => {
@@ -204,60 +213,116 @@ export default function PosterGallery() {
           className="flex flex-wrap justify-center gap-4 mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          {categories.map((category) => (
-            <button
+          {categories.map((category, index) => (
+            <motion.button
               key={category}
               onClick={() => setFilter(category)}
-              className={`px-6 py-2 font-medium tracking-wide transition-all duration-200 ${
+              className={`px-6 py-2 font-medium tracking-wide transition-all duration-150 ${
                 filter === category
                   ? "bg-crimson-red text-paper-white"
                   : "bg-transparent text-charcoal-black hover:bg-dust-grey/20"
               }`}
+              whileHover={{ 
+                scale: 1.05,
+                transition: { duration: 0.15 }
+              }}
+              whileTap={{ 
+                scale: 0.95,
+                transition: { duration: 0.1 }
+              }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.3,
+                delay: index * 0.05,
+                type: "spring",
+                stiffness: 400,
+                damping: 25
+              }}
             >
               {category}
-            </button>
+            </motion.button>
           ))}
         </motion.div>
 
         {/* Poster Grid */}
         <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" layout>
-          <AnimatePresence>
+          <AnimatePresence mode="wait">
             {filteredPosters.map((poster, index) => (
               <motion.div
                 key={poster.id}
                 className="group cursor-pointer"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                initial={{ 
+                  opacity: 0, 
+                  y: isInitialLoad ? 50 : 30, 
+                  rotateX: isInitialLoad ? -20 : -15,
+                  scale: isInitialLoad ? 0.9 : 1
+                }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+                exit={{ 
+                  opacity: 0, 
+                  scale: 0.9,
+                  rotateY: 90,
+                  transition: { duration: 0.2 }
+                }}
+                transition={{ 
+                  duration: isInitialLoad ? 0.5 : 0.3, 
+                  delay: isInitialLoad ? index * 0.08 : index * 0.03,
+                  type: "spring",
+                  stiffness: isInitialLoad ? 300 : 400,
+                  damping: 25
+                }}
                 viewport={{ once: true }}
                 layout
-                whileHover={{ y: -10 }}
+                whileHover={{ 
+                  y: -10, 
+                  scale: 1.02,
+                  rotateX: 5,
+                  transition: { duration: 0.2 }
+                }}
                 onClick={() => setSelectedPoster(poster)}
-                animate={{ opacity: filter === "All" || poster.category === filter ? 1 : 0.1, scale: filter === "All" || poster.category === filter ? 1 : 0.95 }}
-                style={{ pointerEvents: filter === "All" || poster.category === filter ? "auto" : "none" }}
+                animate={{ 
+                  opacity: filter === "All" || poster.category === filter ? 1 : 0,
+                  scale: filter === "All" || poster.category === filter ? 1 : 0.8,
+                  y: filter === "All" || poster.category === filter ? 0 : 20,
+                  transition: {
+                    duration: 0.25,
+                    type: "spring",
+                    stiffness: 500,
+                    damping: 30
+                  }
+                }}
+                style={{ 
+                  pointerEvents: filter === "All" || poster.category === filter ? "auto" : "none",
+                  transformStyle: "preserve-3d"
+                }}
               >
                 {/* Poster Card */}
-                <div className="relative bg-white shadow-lg overflow-hidden aspect-[210/297] group-hover:shadow-2xl transition-all duration-300">
+                <div className="relative bg-white shadow-lg overflow-hidden aspect-[210/297] group-hover:shadow-2xl transition-shadow duration-200">
                   <Image
                     src={poster.image || "/placeholder.svg"}
                     alt={poster.title}
                     fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover transition-transform duration-200 group-hover:scale-105"
                   />
 
                   {/* Overlay */}
                   <div
-                    className={`absolute inset-0 bg-${poster.dominantColor}/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center`}
+                    className={`absolute inset-0 bg-${poster.dominantColor}/80 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center`}
                   >
-                    <div className="text-center text-paper-white p-4">
+                    <motion.div 
+                      className="text-center text-paper-white p-4"
+                      initial={{ y: 10, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.2, delay: 0.05 }}
+                    >
                       <h3 className="text-2xl font-anton font-bold mb-2 tracking-wider">{poster.title}</h3>
                       <p className="text-sm opacity-90">{poster.category}</p>
                       <p className="text-xs opacity-75 mt-1">{poster.year}</p>
-                    </div>
+                    </motion.div>
                   </div>
 
                   {/* Texture overlay */}
