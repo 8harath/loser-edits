@@ -147,6 +147,16 @@ const posters: Poster[] = [
     category: "Fan Art",
     extraDescription: "",
   },
+  {
+    id: 14,
+    title: "Kaal Mela Kaalu Final",
+    description: "Information yet to be added",
+    image: "/Posters/Low-Quality/kaal mela kaalu final.jpg",
+    dominantColor: "gray",
+    year: "",
+    category: "Music Poster",
+    extraDescription: "",
+  },
 ]
 
 const categories = ["All", "Film Poster", "Music Poster", "Fan Art"];
