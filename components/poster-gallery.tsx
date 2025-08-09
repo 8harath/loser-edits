@@ -149,7 +149,7 @@ const posters: Poster[] = [
   },
   {
     id: 14,
-    title: "Kaal Mela Kaalu Final",
+    title: "Kaal Mela Kaalu",
     description: "Information yet to be added",
     image: "/Posters/Low-Quality/kaal mela kaalu final.jpg",
     dominantColor: "gray",
