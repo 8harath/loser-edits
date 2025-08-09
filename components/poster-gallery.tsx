@@ -69,9 +69,9 @@ const posters: Poster[] = [
   },
   {
     id: 6,
-    title: "Jocker",
+    title: "Joker",
     description: "This poster explores the fragmented psychology of the Joker through intentional disarray in both form and typography. Scattered, dissolving text elements convey a sense of mental instability and visual disconnection, mirroring the character's perception of reality. Avoiding structured design norms, the composition embraces a broken, drifting aesthetic with phrases like \"A Film by Todd Phillips,\" \"Otavaayi Designs,\" and \"Joker\" subtly embedded. A bold and unconventional color palette—considered unsuitable for fashion—proves unexpectedly effective in this context, reinforcing the design's experimental tone. The result is a concept-driven, emotionally raw piece that embraces chaos as a design language.",
-    image: "/Posters/Low-Quality/Jocker.jpg",
+    image: "/Posters/Low-Quality/Joker.jpg",
     dominantColor: "gray",
     year: "",
     category: "Fan Art",
