@@ -5,6 +5,7 @@ import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
 import "../styles/globals.css"
 import { LoaderProvider } from "@/components/ui/loader-provider"
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -173,6 +174,7 @@ export default function RootLayout({
           {children}
         </LoaderProvider>
         <Toaster />
+        <Analytics />
       </body>
     </html>
   )

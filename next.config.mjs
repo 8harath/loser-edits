@@ -26,20 +26,6 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   swcMinify: true,
-  
-  // Experimental features for better performance
-  experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ['framer-motion', 'lucide-react'],
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
-  },
 
   // Headers for SEO and security
   async headers() {
@@ -62,15 +48,6 @@ const nextConfig = {
           {
             key: 'X-DNS-Prefetch-Control',
             value: 'on',
-          },
-        ],
-      },
-      {
-        source: '/api/(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=3600, stale-while-revalidate=86400',
           },
         ],
       },
@@ -114,36 +91,6 @@ const nextConfig = {
         permanent: true,
       },
     ]
-  },
-
-  // Webpack optimizations
-  webpack: (config, { dev, isServer }) => {
-    // Optimize bundles
-    if (!dev && !isServer) {
-      config.optimization.splitChunks = {
-        chunks: 'all',
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all',
-          },
-          common: {
-            name: 'common',
-            minChunks: 2,
-            chunks: 'all',
-          },
-        },
-      }
-    }
-
-    // SVG handling
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    })
-
-    return config
   },
 }
 
